@@ -1,0 +1,27 @@
+<h1>{{pageTitle}}</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form novalidate [formGroup]="createForm" (ngSubmit)="create()">
+            <div class="form-group">
+                <label class="control-label" for="Name">Name</label>
+                <input type="text" class="form-control" id="Name" formControlName="name"
+                    [ngClass]="{ 'is-invalid': displayMessage.name }" />
+                <span class="text-danger">
+                    {{ displayMessage.name }}
+                </span>
+            </div>
+            <div class="form-group">
+                <input id="btnCreate" type="submit" value="Create" class="btn btn-primary" [title]="
+            createForm.valid
+              ? 'Save your entered data'
+              : 'Disabled until the form data is valid'
+          " [disabled]="!createForm.valid" />
+            </div>
+        </form>
+    </div>
+    <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+</div>
+<div>
+    <a [routerLink]="['/creditor']">Back to List</a>
+</div>

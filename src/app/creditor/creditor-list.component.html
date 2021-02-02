@@ -1,0 +1,35 @@
+<h1>{{pageTitle}}</h1>
+
+<p>
+  <a [routerLink]="['create']">
+    Create New
+  </a>
+</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        Description
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let creditor of creditors">
+      <td>
+        {{ creditor.name }}
+      </td>
+      <td>
+        <a [routerLink]="['edit', creditor.id]">
+          Edit |
+        </a>
+        <a [routerLink]="['detail', creditor.id]">
+          Details |
+        </a>
+        <a [routerLink]="['delete', creditor.id]">
+          Delete
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
